@@ -1,7 +1,11 @@
 const isCheckCharacter = (str, firstSymbol, secondSymbol) => {
     try {
+        if(!str || !firstSymbol || !secondSymbol) {
+            throw new isNotDefinedError("Var is not defined!");
+        }
+
         if (typeof(str) !== "string") {
-            throw new Error("Input param is not string");
+            throw new typeError("Input param is not string");
         }
 
         let countF = 0;
@@ -29,10 +33,10 @@ const isCheckCharacter = (str, firstSymbol, secondSymbol) => {
 const trunCate = (str, maxlength) => {
     try {
         if (!str || !maxlength) {
-            throw new Error("Str or Maxlength is null or undefined!!!");
+            throw new isNotDefinedError("Str or Maxlength is null or undefined!!!");
         }
 
-        if (str.length > maxlength) {
+        if ((str.length > maxlength) && (maxlength > 0)) {
             if (maxlength <= 4) {
                 str = str.slice(0, maxlength);
             } else {
@@ -53,11 +57,11 @@ const trunCate = (str, maxlength) => {
 const isPresenceOfSubstring = (str, substr) => {
     try {
         if (!str || !substr) {
-            throw new Error("Str or substr is not defined!")
+            throw new isNotDefinedError("Str or substr is not defined!")
         }
 
         if ((typeof (str) !== "string") || (typeof (substr) !== "string")) {
-            throw new Error("Str or substr is not string!");
+            throw new typeError("Str or substr is not string!");
         }
 
         if (str.includes(substr)) {
