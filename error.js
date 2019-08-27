@@ -1,11 +1,11 @@
-class isNotDefinedError {
+class isNotDefinedError extends Error {
     constructor(message) {
-        this.message = message;
+        super(message);
     }
 }
 
-class typeError {
+class typeError extends Error {
     constructor(message) {
-        this.message = message;
+        super(message);
     }
 }
